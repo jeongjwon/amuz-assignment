@@ -1,3 +1,4 @@
+import 'package:amuz_assignment/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -34,34 +35,34 @@ class HomeScreen extends StatelessWidget {
               "Jeong Ji Won",
               style: TextStyle(
                 fontSize: 30.0,
-                fontWeight: FontWeight.w900,
+                fontWeight: FontWeight.w800,
               ),
             ),
             const SizedBox(height: 20.0),
-            Text(
+            const Text(
               "Software Engineer",
               style: TextStyle(
                 fontWeight: FontWeight.w700,
                 fontSize: 20,
-                color: Colors.orange[700],
+                color: primaryColor,
               ),
             ),
             const SizedBox(height: 30.0),
             const Text(
               'FrontEnd Junior ( React / Vue / Flutter )',
               style: TextStyle(
-                fontSize: 15,
+                fontSize: 18,
                 fontWeight: FontWeight.w500,
               ),
             ),
-            const SizedBox(height: 20.0),
+            const SizedBox(height: 30.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 ElevatedButton.icon(
                   icon: const FaIcon(
                     FontAwesomeIcons.google,
-                    color: Colors.black,
+                    color: whiteColor,
                   ),
                   onPressed: () {},
                   style: ButtonStyle(
@@ -71,20 +72,26 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                     backgroundColor:
-                        MaterialStateProperty.all<Color>(Colors.white24),
+                        MaterialStateProperty.all<Color>(boxBgColor),
                     padding: MaterialStateProperty.all(
                       const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                    ),
+                    side: MaterialStateProperty.all<BorderSide>(
+                      const BorderSide(
+                        color: primaryColor, // 테두리의 색상을 설정합니다.
+                        width: 2, // 테두리의 너비를 설정합니다.
+                      ),
                     ),
                   ),
                   label: const Text(
                     "Google",
-                    style: TextStyle(color: Colors.black),
+                    style: TextStyle(color: whiteColor),
                   ),
                 ),
                 ElevatedButton.icon(
                   icon: const FaIcon(
                     FontAwesomeIcons.github,
-                    color: Colors.black,
+                    color: whiteColor,
                   ),
                   onPressed: () {},
                   style: ButtonStyle(
@@ -94,20 +101,26 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                     backgroundColor:
-                        MaterialStateProperty.all<Color>(Colors.white24),
+                        MaterialStateProperty.all<Color>(boxBgColor),
                     padding: MaterialStateProperty.all(
                       const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                    ),
+                    side: MaterialStateProperty.all<BorderSide>(
+                      const BorderSide(
+                        color: primaryColor, // 테두리의 색상을 설정합니다.
+                        width: 2, // 테두리의 너비를 설정합니다.
+                      ),
                     ),
                   ),
                   label: const Text(
                     "GitHub",
-                    style: TextStyle(color: Colors.black),
+                    style: TextStyle(color: whiteColor),
                   ),
                 ),
                 ElevatedButton.icon(
                   icon: const FaIcon(
                     FontAwesomeIcons.blogger,
-                    color: Colors.black,
+                    color: whiteColor,
                   ),
                   onPressed: () {},
                   style: ButtonStyle(
@@ -117,14 +130,20 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                     backgroundColor:
-                        MaterialStateProperty.all<Color>(Colors.white24),
+                        MaterialStateProperty.all<Color>(boxBgColor),
                     padding: MaterialStateProperty.all(
                       const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                    ),
+                    side: MaterialStateProperty.all<BorderSide>(
+                      const BorderSide(
+                        color: primaryColor, // 테두리의 색상을 설정합니다.
+                        width: 2, // 테두리의 너비를 설정합니다.
+                      ),
                     ),
                   ),
                   label: const Text(
                     "Blog",
-                    style: TextStyle(color: Colors.black),
+                    style: TextStyle(color: whiteColor),
                   ),
                 ),
               ],

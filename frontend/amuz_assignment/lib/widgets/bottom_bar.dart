@@ -1,3 +1,4 @@
+import 'package:amuz_assignment/constants.dart';
 import 'package:flutter/material.dart';
 
 class BottomBar extends StatelessWidget {
@@ -6,7 +7,7 @@ class BottomBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.orange[700],
+      color: primaryColor,
       child: const SizedBox(
         height: 80,
         child: TabBar(
@@ -17,31 +18,37 @@ class BottomBar extends StatelessWidget {
             Tab(
               child: Text(
                 'Home',
-                style: TextStyle(fontSize: 13),
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w700,
+                ),
               ),
             ),
             Tab(
               child: Text(
                 'About',
-                style: TextStyle(fontSize: 13),
-              ),
-            ),
-            Tab(
-              child: Text(
-                'Career',
-                style: TextStyle(fontSize: 13),
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w700,
+                ),
               ),
             ),
             Tab(
               child: Text(
                 'Project',
-                style: TextStyle(fontSize: 13),
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w700,
+                ),
               ),
             ),
             Tab(
               child: Text(
                 'Search',
-                style: TextStyle(fontSize: 13),
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w700,
+                ),
               ),
             ),
           ],
