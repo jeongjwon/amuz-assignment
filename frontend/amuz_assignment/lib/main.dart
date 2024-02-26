@@ -1,5 +1,4 @@
 import 'package:amuz_assignment/screens/about_screen.dart';
-import 'package:amuz_assignment/screens/career_screen.dart';
 import 'package:amuz_assignment/screens/project.screen.dart';
 import 'package:amuz_assignment/screens/search_screen.dart';
 import 'package:amuz_assignment/widgets/bottom_bar.dart';
@@ -18,19 +17,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'My Portfolio',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData.dark(),
       home: const DefaultTabController(
-        length: 5,
+        length: 4,
         child: Scaffold(
           body: TabBarView(
+            // physics: NeverScrollableScrollPhysics(),
             children: <Widget>[
               HomeScreen(),
               AboutScreen(),
-              CareerScreen(),
               ProjectScreen(),
               SearchScreen(),
             ],
