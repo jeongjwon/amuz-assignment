@@ -1,29 +1,32 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
+namespace Database\Seeders;
 
-return new class extends Migration
+use Illuminate\Database\Seeder;
+use App\Models\MyPortfolio;
+
+class MyPortfolioSeeder extends Seeder
 {
     /**
-     * Run the migrations.
+     * Run the database seeds.
+     *
+     * @return void
      */
     public function up(): void
     {
+       
         Schema::create('my_portfolios', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->string('title');
             $table->text('description');
             $table->text('stacks');
-            $table->string('link');
+            $table->text('link');
             $table->string('date');
             $table->string('image_path');
-        
         });
+        
     }
-
     /**
      * Reverse the migrations.
      */
@@ -31,4 +34,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('my_portfolios');
     }
-};
+}
