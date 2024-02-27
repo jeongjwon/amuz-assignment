@@ -19,7 +19,7 @@ class BottomBar extends StatelessWidget {
               child: Text(
                 'Home',
                 style: TextStyle(
-                  fontSize: 15,
+                  fontSize: textSize,
                   fontWeight: FontWeight.w700,
                 ),
               ),
@@ -28,7 +28,7 @@ class BottomBar extends StatelessWidget {
               child: Text(
                 'About',
                 style: TextStyle(
-                  fontSize: 15,
+                  fontSize: textSize,
                   fontWeight: FontWeight.w700,
                 ),
               ),
@@ -37,7 +37,7 @@ class BottomBar extends StatelessWidget {
               child: Text(
                 'Project',
                 style: TextStyle(
-                  fontSize: 15,
+                  fontSize: textSize,
                   fontWeight: FontWeight.w700,
                 ),
               ),
@@ -46,7 +46,7 @@ class BottomBar extends StatelessWidget {
               child: Text(
                 'Search',
                 style: TextStyle(
-                  fontSize: 15,
+                  fontSize: textSize,
                   fontWeight: FontWeight.w700,
                 ),
               ),
