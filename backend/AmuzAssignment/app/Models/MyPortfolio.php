@@ -13,7 +13,6 @@ class MyPortfolio extends Model
         'title',
         'description',
         'stacks',
-        // 'link',
         'date',
         'image_path',
         'git',
