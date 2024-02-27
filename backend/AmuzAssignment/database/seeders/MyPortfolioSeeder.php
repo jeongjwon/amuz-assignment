@@ -27,6 +27,8 @@ class MyPortfolioSeeder extends Seeder
             'deploy' => null,
             'date' => '2021.04 - 2021.05',
             'image_path' => 'http://127.0.0.1:8000/api/images/anti_corona.png',
+            'roles' => '스테이지별 화면 구성,NPC 접촉시 기능 구현',
+            'results' => 'NPC 접촉에 따른 PC의 모습을 구분하여 구현할 수 있었음,스테이지별로 NPC 의 난이도를 조절할 수 있었음',
         ]);
         MyPortfolio::create([
             'title' => 'Meecord',
@@ -38,17 +40,21 @@ class MyPortfolioSeeder extends Seeder
             'deploy' => 'https://meecord-223cc.firebaseapp.com/',
             'date' => '2022.03 - 2022.06',
             'image_path' => 'http://127.0.0.1:8000/api/images/meecord.png',
+            'roles' => '전체적인 웹 어플리케이션 디자인,실시간 채팅창,채팅 키워드 검색 기능',
+            'results' => 'Firebase 를 통해 전체 화상 채팅 데이터를 관리할 수 있었음,음성 인식된 채팅에서 키워드를 검색하여 해당 키워드로 이동을 가능하게 하였음',
         ]);
 
         MyPortfolio::create([
             'title' => '가계부 어플리케이션',
-            'description' => 'React 기초를 익히기 위해 개인적으로 진행한 가계부 토이 프로젝트이다. 기본적으로 수입, 지출 등의 내역 CRUD 기능과 연간 조회 기능이 있다. ',
+            'description' => 'React 기초를 익히기 위해 개인적으로 진행한 가계부 토이 프로젝트이다. 기본적으로 수입, 지출 등의 내역 CRUD 기능과 연간 조회 기능이 있다.',
             'stacks' => 'React,JavaScript,HTML,CSS',
             'git' => 'https://github.com/jeongjwon/account-book',
             'blog' => null,
             'deploy' => 'https://jeongjwon.github.io/account-book/',
             'date' => '2022.10',
             'image_path' => 'http://127.0.0.1:8000/api/images/account.png',
+            'roles' => '가계부 내역 CRUD,연간 조회 필터 기능',
+            'results' => 'React 를 이용한 첫 토이 프로젝트로 컴포넌트의 전체적인 구조를 깨닫고 props와 state 에 대해 부모-자식 간 연결하여 사용할 수 있음을 배웠음,연간 버튼을 통해 연간별 내역 조회 기능이 미흡한 것이 아쉬움이 남음',
         ]);
 
         MyPortfolio::create([
@@ -60,6 +66,8 @@ class MyPortfolioSeeder extends Seeder
             'deploy' => null,
             'date' => '2023.04',
             'image_path' => 'http://127.0.0.1:8000/api/images/my_running.png',
+            'roles' => '기록 CRUD,date-fns 라이브러리를 사용한 캘린더 연동,Styled-component를 활용한 컴포넌트 디자인,redux 를 이용한 모달 전역관리',
+            'results' => 'React 캘린더 라이브러리를 사용하여 용이하게 월별 요약을 할 수 있었음,JavaScript 에서 TypeScript 로 리팩토링을 진행하면서 undefined 의 오류를 줄일 수 있었음,localStroage 에서 Redux 로 리팩토링하면서 상태를 사용하고 코드 유지보수가 용이해짐',
         ]);
 
         MyPortfolio::create([
@@ -71,6 +79,8 @@ class MyPortfolioSeeder extends Seeder
             'deploy' => 'https://seb44-pre-029.netlify.app/',
             'date' => '2023.06',
             'image_path' => 'http://127.0.0.1:8000/api/images/stackoverflow_clone.png',
+            'roles' => '게시물 CRUD,회원가입 Oauth,투표하기 기능',
+            'results' => '구글 OAuth 기능을 구현하면서 클라이언트-서버-구글 서버의 Flow 흐름을 파악할 수 있었음,CRUD 기능을 복습해보고 기술을 익힐 수 있었음',
         ]);
 
         MyPortfolio::create([
@@ -82,6 +92,8 @@ class MyPortfolioSeeder extends Seeder
             'deploy' => 'http://whosebook-client.s3-website.ap-northeast-2.amazonaws.com/',
             'date' => '2023.06 - 2023.07',
             'image_path' => 'http://127.0.0.1:8000/api/images/whose_book.png',
+            'roles' => '회원 관리 (마이페이지 회원 정보 조회, 수정),댓글 CRUD,좋아요 기능,구독하기 기능,Nested Routing,페이지네이션,책 도서 검색 API 사용',
+            'results' => 'React-Paginate 라이브러리를 이용한 페이지네이션을 통해 뒤로가기 시 경로를 기억할 수 있기에 사용장 입장에서 편리함을 제공,댓글과 자신의 회원 정보를 Redux-Toolkit으로 전역관리 함으로써 새로고침없이 효율적으로 리소스를 처리할 수 있음,중첩 라우팅을 통해 중복된 컴포넌트의 렌더링되는 비용을 줄일 수 있음',
         ]);
 
         MyPortfolio::create([
@@ -93,6 +105,8 @@ class MyPortfolioSeeder extends Seeder
             'deploy' => null,
             'date' => '2023.11',
             'image_path' => 'http://127.0.0.1:8000/api/images/my_run_club.png',
+            'roles' => '러닝 활동 CRUD,러닝 DB - Firebase 연동,러닝 요약',
+            'results' => 'Provider 를 이용해 DB를 전역 상태 관리하였음,Tab Controller 를 이용해 주월년을 기준으로 요약할 수 있었음,BarChart 위젯을 이용해 요약을 차트 그림으로 표현할 수 있었음',
         ]);
 
     }

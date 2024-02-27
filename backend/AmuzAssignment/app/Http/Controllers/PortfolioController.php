@@ -12,10 +12,7 @@ class PortfolioController extends Controller
     {
         $portfolios = MyPortfolio::all();
       
-        // image_path 를 절대경로로 바꾸어 줌
-        // foreach ($portfolios as $portfolio) {
-        //     $portfolio->image_path = asset('api/images/' . $portfolio->image_path);
-        // }
+        
         
         return response()->json($portfolios);
     }

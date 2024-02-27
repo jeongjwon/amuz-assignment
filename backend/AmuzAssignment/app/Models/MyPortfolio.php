@@ -18,5 +18,7 @@ class MyPortfolio extends Model
         'git',
         'blog',
         'deploy',
+        'roles',
+        'results',
     ];
 }
