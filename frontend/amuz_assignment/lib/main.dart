@@ -1,5 +1,5 @@
 import 'package:amuz_assignment/screens/about_screen.dart';
-import 'package:amuz_assignment/screens/project.screen.dart';
+import 'package:amuz_assignment/screens/project_screen.dart';
 import 'package:amuz_assignment/screens/search_screen.dart';
 import 'package:amuz_assignment/widgets/bottom_bar.dart';
 import 'package:flutter/material.dart';

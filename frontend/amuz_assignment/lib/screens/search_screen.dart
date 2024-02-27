@@ -62,8 +62,10 @@ class _SearchScreenState extends State<SearchScreen> {
                       hintText: "포트폴리오를 검색해보세요."),
                 ),
               ),
-              // const SizedBox(height: 20),
 
+              const SizedBox(height: 20),
+
+              // SearchPortFolioList(searchTerm: searchTerm),
               FutureBuilder<List<Portfolio>>(
                 future: futurePortfolios,
                 builder: (context, snapshot) {
@@ -102,10 +104,11 @@ class _SearchScreenState extends State<SearchScreen> {
                           ),
                         ),
                         PortfolioList(portfolios: snapshot.data!),
+                        // SearchPortFolioList(searchTerm: searchTerm)
                       ],
                     );
                   } else {
-                    return const Text('');
+                    return const Text('검색 결과가 없습니다.');
                   }
                 },
               ),

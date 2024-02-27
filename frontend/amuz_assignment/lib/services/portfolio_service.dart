@@ -1,6 +1,4 @@
 import 'dart:convert';
-import 'dart:ffi';
-import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class Portfolio {
@@ -39,8 +37,7 @@ class Portfolio {
 }
 
 class PortfolioService {
-  // static const String baseUrl = 'YOUR_API_BASE_URL';
-  static const String baseUrl = 'http://localhost:8000';
+  static const String baseUrl = 'http://127.0.0.1:8000';
 
   static Future<List<Portfolio>> getPortfolios() async {
     final response = await http.get(Uri.parse('$baseUrl/api/portfolios'));
@@ -59,9 +56,7 @@ class PortfolioService {
 
     if (response.statusCode == 200) {
       final List<dynamic> data = json.decode(response.body);
-      // final searchResults =
       return data.map((json) => Portfolio.fromJson(json)).toList();
-      // updateSearchResults(searchResults); // 검색 결과 업데이트
     } else {
       throw Exception('Failed to load search results');
     }

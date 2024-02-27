@@ -1,29 +1,54 @@
 import 'package:amuz_assignment/constants.dart';
+import 'package:amuz_assignment/services/portfolio_service.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import '../services/portfolio_service.dart';
 
-class PortfolioList extends StatelessWidget {
-  final List<Portfolio> portfolios;
+class SearchPortFolioList extends StatefulWidget {
+  final String searchTerm;
 
-  const PortfolioList({
+  const SearchPortFolioList({
     Key? key,
-    required this.portfolios,
+    required this.searchTerm,
   }) : super(key: key);
 
   @override
+  State<SearchPortFolioList> createState() => _SearchPortFolioListState();
+}
+
+class _SearchPortFolioListState extends State<SearchPortFolioList> {
+  late Future<List<Portfolio>> futurePortfolios;
+
+  @override
+  void initState() {
+    super.initState();
+
+    futurePortfolios = PortfolioService.searchPortfolio('');
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: portfolios.asMap().entries.map((entry) {
-          final index = entry.key + 1;
-          final portfolio = entry.value;
-          return _buildProjectTile(
-            portfolio,
-            index,
+    return FutureBuilder<List<Portfolio>>(
+      future: futurePortfolios,
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const CircularProgressIndicator();
+        } else if (snapshot.hasError) {
+          return Text('Error: ${snapshot.error}');
+        } else if (snapshot.hasData &&
+            snapshot.data != null &&
+            snapshot.data!.isNotEmpty) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: snapshot.data!.asMap().entries.map((entry) {
+              final index = entry.key + 1;
+              final portfolio = entry.value;
+              return _buildProjectTile(portfolio, index);
+            }).toList(),
           );
-        }).toList(),
-      ),
+        } else {
+          return const Text('검색 결과가 없습니다.');
+        }
+      },
     );
   }
 }
@@ -32,6 +57,7 @@ Widget _buildProjectTile(Portfolio portfolio, int index) {
   EdgeInsets contentPadding = index == 1
       ? const EdgeInsets.fromLTRB(0, 30, 0, 80)
       : const EdgeInsets.symmetric(vertical: 80);
+
   return ListTile(
       contentPadding: contentPadding,
       title: _buildProjectTitle(portfolio, index),
@@ -146,7 +172,7 @@ Widget _buildLinks(String label, String? url) {
       ),
     );
   } else {
-    return const SizedBox(); // 아무것도 반환하지 않음
+    return const SizedBox();
   }
 }
 
