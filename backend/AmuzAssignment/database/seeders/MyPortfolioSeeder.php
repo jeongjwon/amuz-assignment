@@ -26,7 +26,7 @@ class MyPortfolioSeeder extends Seeder
             'blog' => null,
             'deploy' => null,
             'date' => '2021.04 - 2021.05',
-            'image_path' => 'anti_corona.png',
+            'image_path' => 'http://127.0.0.1:8000/api/images/anti_corona.png',
         ]);
         MyPortfolio::create([
             'title' => 'Meecord',
@@ -37,7 +37,7 @@ class MyPortfolioSeeder extends Seeder
             'blog' => null,
             'deploy' => 'https://meecord-223cc.firebaseapp.com/',
             'date' => '2022.03 - 2022.06',
-            'image_path' => 'meecord.png',
+            'image_path' => 'http://127.0.0.1:8000/api/images/meecord.png',
         ]);
 
         MyPortfolio::create([
@@ -48,7 +48,7 @@ class MyPortfolioSeeder extends Seeder
             'blog' => null,
             'deploy' => 'https://jeongjwon.github.io/account-book/',
             'date' => '2022.10',
-            'image_path' => 'account.png',
+            'image_path' => 'http://127.0.0.1:8000/api/images/account.png',
         ]);
 
         MyPortfolio::create([
@@ -59,7 +59,7 @@ class MyPortfolioSeeder extends Seeder
             'blog' => 'https://velog.io/@jeongjwon/Project-Run-Record',
             'deploy' => null,
             'date' => '2023.04',
-            'image_path' => 'my_running.png',
+            'image_path' => 'http://127.0.0.1:8000/api/images/my_running.png',
         ]);
 
         MyPortfolio::create([
@@ -70,7 +70,7 @@ class MyPortfolioSeeder extends Seeder
             'blog' => null,
             'deploy' => 'https://seb44-pre-029.netlify.app/',
             'date' => '2023.06',
-            'image_path' => '',
+            'image_path' => 'http://127.0.0.1:8000/api/images/stackoverflow_clone.png',
         ]);
 
         MyPortfolio::create([
@@ -81,7 +81,7 @@ class MyPortfolioSeeder extends Seeder
             'blog' => 'https://velog.io/@jeongjwon/Main-Project',
             'deploy' => 'http://whosebook-client.s3-website.ap-northeast-2.amazonaws.com/',
             'date' => '2023.06 - 2023.07',
-            'image_path' => 'whose_book.png',
+            'image_path' => 'http://127.0.0.1:8000/api/images/whose_book.png',
         ]);
 
         MyPortfolio::create([
@@ -92,7 +92,7 @@ class MyPortfolioSeeder extends Seeder
             'blog' =>'https://velog.io/@jeongjwon/Project-My-Run-Club#2-%EB%9F%AC%EB%8B%9D-%EA%B8%B0%EB%A1%9D-%EC%9A%94%EC%95%BD',
             'deploy' => null,
             'date' => '2023.11',
-            'image_path' => 'my_run_club.png',
+            'image_path' => 'http://127.0.0.1:8000/api/images/my_run_club.png',
         ]);
 
     }
