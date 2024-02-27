@@ -1,8 +1,9 @@
-import 'package:amuz_assignment/constants.dart';
+import 'package:amuz_assignment/services/portfolio_service.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:url_launcher/url_launcher.dart';
-import '../services/portfolio_service.dart';
+import 'package:amuz_assignment/constants.dart';
+import 'package:amuz_assignment/screens/detail_screen.dart';
+import 'package:amuz_assignment/widgets/link_widget.dart';
+import 'package:amuz_assignment/widgets/skill_widget.dart';
 
 class AllPortfolioList extends StatefulWidget {
   const AllPortfolioList({super.key});
@@ -37,7 +38,17 @@ class _AllPortfolioListState extends State<AllPortfolioList> {
             final index = entry.key + 1;
             final portfolio = entry.value;
 
-            return _buildProjectTile(portfolio, index);
+            return GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => DetailScreen(
+                              portfolio: portfolio,
+                            )),
+                  );
+                },
+                child: _buildProjectTile(portfolio, index));
           }).toList()));
         }
       },
@@ -108,79 +119,14 @@ Widget _buildProjectSubTitle(Portfolio portfolio, int index) {
           height: 1.5,
         ),
       ),
-      _buildSkills(portfolio.stacks),
+      SkillWidget(stackArray: portfolio.stacks),
       Row(
         children: [
-          _buildLinks('Github', portfolio.git),
-          _buildLinks('Blog', portfolio.blog),
-          _buildLinks('Deploy', portfolio.deploy),
+          LinkWidget(label: 'Github', url: portfolio.git),
+          LinkWidget(label: 'Blog', url: portfolio.blog),
+          LinkWidget(label: 'Deploy', url: portfolio.deploy),
         ],
       ),
     ],
   );
-}
-
-Widget _buildSkills(String stackArray) {
-  final stacks = stackArray.split(",");
-  final List<Widget> widgets = stacks
-      .map((stack) => Padding(
-            padding: const EdgeInsets.only(right: 8.0),
-            child: _buildSkillChip(stack),
-          ))
-      .toList();
-
-  return Padding(
-    padding: const EdgeInsets.symmetric(vertical: 10.0),
-    child: Column(
-      mainAxisSize: MainAxisSize.max,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Wrap(children: widgets),
-      ],
-    ),
-  );
-}
-
-Widget _buildSkillChip(String label) {
-  return Chip(
-    label: Text(label,
-        style: const TextStyle(
-          fontSize: smallTextSize,
-          fontWeight: FontWeight.w500,
-        )),
-  );
-}
-
-Widget _buildLinks(String label, String? url) {
-  if (url != null) {
-    return GestureDetector(
-      onTap: () async {
-        final link = Uri.parse(url);
-        await launchUrl(link);
-      },
-      child: Padding(
-        padding: const EdgeInsets.only(right: 20.0),
-        child: FaIcon(
-          mapIcon(label),
-          color: whiteColor,
-        ),
-      ),
-    );
-  } else {
-    return const SizedBox();
-  }
-}
-
-IconData mapIcon(String icon) {
-  switch (icon) {
-    case 'Deploy':
-      return FontAwesomeIcons.link;
-    case 'Github':
-      return FontAwesomeIcons.github;
-    case 'Blog':
-      return FontAwesomeIcons.blogger;
-
-    default:
-      return FontAwesomeIcons.user;
-  }
 }

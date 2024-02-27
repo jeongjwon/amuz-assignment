@@ -10,6 +10,8 @@ class Portfolio {
   final String? deploy;
   final String date;
   final String imagePath;
+  final String roles;
+  final String results;
 
   Portfolio({
     required this.title,
@@ -20,6 +22,8 @@ class Portfolio {
     this.deploy,
     required this.date,
     required this.imagePath,
+    required this.roles,
+    required this.results,
   });
 
   factory Portfolio.fromJson(Map<String, dynamic> json) {
@@ -32,6 +36,8 @@ class Portfolio {
       deploy: json['deploy'],
       date: json['date'],
       imagePath: json['image_path'],
+      roles: json['roles'],
+      results: json['results'],
     );
   }
 }
