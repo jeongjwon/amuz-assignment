@@ -1,6 +1,7 @@
 import 'package:amuz_assignment/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../services/portfolio_service.dart';
 
 class AllPortfolioList extends StatefulWidget {
@@ -153,7 +154,10 @@ Widget _buildSkillChip(String label) {
 Widget _buildLinks(String label, String? url) {
   if (url != null) {
     return GestureDetector(
-      // onTap: () => launch(url),
+      onTap: () async {
+        final link = Uri.parse(url);
+        await launchUrl(link);
+      },
       child: Padding(
         padding: const EdgeInsets.only(right: 20.0),
         child: FaIcon(
@@ -163,7 +167,7 @@ Widget _buildLinks(String label, String? url) {
       ),
     );
   } else {
-    return const SizedBox(); // 아무것도 반환하지 않음
+    return const SizedBox();
   }
 }
 
