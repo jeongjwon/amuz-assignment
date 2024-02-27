@@ -4,48 +4,52 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../services/portfolio_service.dart';
 
 class PortfolioList extends StatefulWidget {
-  const PortfolioList({super.key});
+  final List<Portfolio> portfolios;
+
+  const PortfolioList({
+    Key? key,
+    required this.portfolios,
+  }) : super(key: key);
 
   @override
   _PortfolioListState createState() => _PortfolioListState();
 }
 
 class _PortfolioListState extends State<PortfolioList> {
-  late Future<List<Portfolio>> futurePortfolios;
-
-  @override
-  void initState() {
-    super.initState();
-    futurePortfolios = PortfolioService.getPortfolios();
-  }
-
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<List<Portfolio>>(
-      future: futurePortfolios,
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return const CircularProgressIndicator();
-        } else if (snapshot.hasError) {
-          return Text('Error: ${snapshot.error}');
-        } else {
-          return SingleChildScrollView(
-              child: Column(
-                  children: snapshot.data!.asMap().entries.map((entry) {
-            final index = entry.key + 1;
-            final portfolio = entry.value;
-
-            return _buildProjectTile(portfolio, index);
-          }).toList()));
-        }
-      },
+    return SingleChildScrollView(
+      child: Column(
+        children: widget.portfolios.asMap().entries.map((entry) {
+          final index = entry.key + 1;
+          final portfolio = entry.value;
+          return _buildProjectTile(
+            portfolio,
+            index,
+          );
+        }).toList(),
+      ),
     );
+
+    // SingleChildScrollView(
+    //   child: Column(
+    //       children: snapshot.data!.asMap().entries.map((entry) {
+    //     final index = entry.key + 1;
+    //     final portfolio = entry.value;
+
+    //     return _buildProjectTile(portfolio, index);
+    //   }).toList()),
+    // );
   }
 }
 
 Widget _buildProjectTile(Portfolio portfolio, int index) {
+  EdgeInsets contentPadding = index == 1
+      ? const EdgeInsets.fromLTRB(0, 30, 0, 80)
+      : const EdgeInsets.symmetric(vertical: 80);
   return ListTile(
-      contentPadding: const EdgeInsets.symmetric(vertical: 80),
+      contentPadding: contentPadding,
+      // const EdgeInsets.symmetric(vertical: 80),
       title: _buildProjectTitle(portfolio, index),
       subtitle: _buildProjectSubTitle(portfolio, index));
 }
