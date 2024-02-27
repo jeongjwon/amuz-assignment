@@ -1,22 +1,37 @@
 import 'package:amuz_assignment/constants.dart';
+import 'package:amuz_assignment/services/portfolio_service.dart';
 import 'package:amuz_assignment/widgets/portfolio_list.dart';
+
 import 'package:flutter/material.dart';
 
-class ProjectScreen extends StatelessWidget {
+class ProjectScreen extends StatefulWidget {
   const ProjectScreen({super.key});
 
   @override
+  State<ProjectScreen> createState() => _ProjectScreenState();
+}
+
+class _ProjectScreenState extends State<ProjectScreen> {
+  late Future<List<Portfolio>> futurePortfolios;
+
+  @override
+  void initState() {
+    super.initState();
+    futurePortfolios = PortfolioService.getPortfolios();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(
+    return SingleChildScrollView(
       child: Padding(
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         child: Center(
             child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 80),
-            Text(
+            const SizedBox(height: 80),
+            const Text(
               'My Projects',
               style: TextStyle(
                 color: primaryColor,
@@ -24,8 +39,21 @@ class ProjectScreen extends StatelessWidget {
                 fontWeight: FontWeight.w900,
               ),
             ),
-            SizedBox(height: 20),
-            PortfolioList(),
+            const SizedBox(height: 20),
+            // PortfolioList(),
+            FutureBuilder<List<Portfolio>>(
+              future: futurePortfolios,
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const CircularProgressIndicator();
+                } else if (snapshot.hasError) {
+                  return Text('Error: ${snapshot.error}');
+                } else {
+                  return PortfolioList(portfolios: snapshot.data!);
+                  // _buildPortfolioList(snapshot.data!);
+                }
+              },
+            )
           ],
         )),
       ),
