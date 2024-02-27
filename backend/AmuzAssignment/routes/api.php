@@ -22,3 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/portfolios', [PortfolioController::class, 'index']);
 
 Route::get('/images/{imageName}', [PortfolioController::class, 'getImage']);
+
+Route::get('/portfolios/search', [PortfolioController::class, 'search']);
