@@ -3,9 +3,12 @@ import 'package:amuz_assignment/screens/project_screen.dart';
 import 'package:amuz_assignment/screens/search_screen.dart';
 import 'package:amuz_assignment/widgets/bottom_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'screens/home_screen.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized(); // 1번코드
+  await dotenv.load(fileName: ".env");
   runApp(const MyApp());
 }
 

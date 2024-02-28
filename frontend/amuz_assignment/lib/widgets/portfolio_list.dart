@@ -1,4 +1,5 @@
 import 'package:amuz_assignment/constants.dart';
+import 'package:amuz_assignment/screens/detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../services/portfolio_service.dart';
@@ -18,9 +19,20 @@ class PortfolioList extends StatelessWidget {
         children: portfolios.asMap().entries.map((entry) {
           final index = entry.key + 1;
           final portfolio = entry.value;
-          return _buildProjectTile(
-            portfolio,
-            index,
+          return GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => DetailScreen(
+                          portfolio: portfolio,
+                        )),
+              );
+            },
+            child: _buildProjectTile(
+              portfolio,
+              index,
+            ),
           );
         }).toList(),
       ),

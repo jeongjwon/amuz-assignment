@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:amuz_assignment/constants.dart';
 import 'package:amuz_assignment/models/certificate.dart';
 import 'package:amuz_assignment/models/education.dart';

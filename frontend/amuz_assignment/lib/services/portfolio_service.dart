@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 
 class Portfolio {
@@ -43,9 +44,9 @@ class Portfolio {
 }
 
 class PortfolioService {
-  static const String baseUrl = 'http://127.0.0.1:8000';
-
   static Future<List<Portfolio>> getPortfolios() async {
+    await dotenv.load();
+    String baseUrl = dotenv.get("PROJECT_URL");
     final response = await http.get(Uri.parse('$baseUrl/api/portfolios'));
 
     if (response.statusCode == 200) {
@@ -57,6 +58,8 @@ class PortfolioService {
   }
 
   static Future<List<Portfolio>> searchPortfolio(String searchTerm) async {
+    await dotenv.load();
+    String baseUrl = dotenv.get("PROJECT_URL");
     final response = await http
         .get(Uri.parse('$baseUrl/api/portfolios/search?search=$searchTerm'));
 
