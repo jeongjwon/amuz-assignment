@@ -6,7 +6,12 @@ import 'package:amuz_assignment/widgets/link_widget.dart';
 import 'package:amuz_assignment/widgets/skill_widget.dart';
 
 class AllPortfolioList extends StatefulWidget {
-  const AllPortfolioList({super.key});
+  final bool sortByNewest;
+
+  const AllPortfolioList({
+    Key? key,
+    required this.sortByNewest,
+  }) : super(key: key);
 
   @override
   _AllPortfolioListState createState() => _AllPortfolioListState();
@@ -32,6 +37,12 @@ class _AllPortfolioListState extends State<AllPortfolioList> {
         } else if (snapshot.hasError) {
           return Text('Error: ${snapshot.error}');
         } else {
+          List<Portfolio> portfolios = snapshot.data!;
+          if (widget.sortByNewest) {
+            portfolios.sort((a, b) => b.id.compareTo(a.id));
+          } else {
+            portfolios.sort((a, b) => a.id.compareTo(b.id));
+          }
           return SingleChildScrollView(
               child: Column(
                   children: snapshot.data!.asMap().entries.map((entry) {

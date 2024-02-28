@@ -3,21 +3,28 @@ import 'package:amuz_assignment/widgets/all_portfolio_list.dart';
 
 import 'package:flutter/material.dart';
 
-class ProjectScreen extends StatelessWidget {
+class ProjectScreen extends StatefulWidget {
   const ProjectScreen({super.key});
 
   @override
+  State<ProjectScreen> createState() => _ProjectScreenState();
+}
+
+class _ProjectScreenState extends State<ProjectScreen> {
+  bool sortByNewest = false;
+
+  @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(
+    return SingleChildScrollView(
       child: Padding(
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         child: Center(
             child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 80),
-            Text(
+            const SizedBox(height: 80),
+            const Text(
               'My Projects',
               style: TextStyle(
                 color: primaryColor,
@@ -25,8 +32,44 @@ class ProjectScreen extends StatelessWidget {
                 fontWeight: FontWeight.w900,
               ),
             ),
-            SizedBox(height: 20),
-            AllPortfolioList(),
+            const SizedBox(height: 40),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      sortByNewest = false;
+                    });
+                  },
+                  child: Text(
+                    !sortByNewest ? '• 오래된 순' : '오래된 순',
+                    style: TextStyle(
+                      color: !sortByNewest ? whiteColor : Colors.grey,
+                      fontWeight:
+                          !sortByNewest ? FontWeight.bold : FontWeight.normal,
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 20),
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      sortByNewest = true;
+                    });
+                  },
+                  child: Text(
+                    sortByNewest ? '• 최신 순' : '최신 순',
+                    style: TextStyle(
+                      color: sortByNewest ? whiteColor : Colors.grey,
+                      fontWeight:
+                          sortByNewest ? FontWeight.bold : FontWeight.normal,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            AllPortfolioList(sortByNewest: sortByNewest),
           ],
         )),
       ),

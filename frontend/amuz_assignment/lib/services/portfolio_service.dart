@@ -3,6 +3,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 
 class Portfolio {
+  final int id;
   final String title;
   final String description;
   final String stacks;
@@ -15,6 +16,7 @@ class Portfolio {
   final String results;
 
   Portfolio({
+    required this.id,
     required this.title,
     required this.description,
     required this.stacks,
@@ -29,6 +31,7 @@ class Portfolio {
 
   factory Portfolio.fromJson(Map<String, dynamic> json) {
     return Portfolio(
+      id: json['id'],
       title: json['title'],
       description: json['description'],
       stacks: json['stacks'],

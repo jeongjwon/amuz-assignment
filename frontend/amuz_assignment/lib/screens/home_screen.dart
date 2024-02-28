@@ -31,7 +31,7 @@ class HomeScreen extends StatelessWidget {
                 radius: 100,
               ),
             ),
-            const SizedBox(height: 20.0),
+            const SizedBox(height: 50.0),
             const Text(
               "Jeong Ji Won",
               style: TextStyle(
