@@ -75,7 +75,7 @@ class DetailScreen extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        height: 20.0,
+                        height: 50.0,
                       ),
                       _buildTitle('⚙️', '사용 스택'),
                       // _buildSkills(portfolio.stacks),
@@ -128,6 +128,7 @@ Widget _buildList(String string) {
                   style: TextStyle(
                     fontSize: smallTitleSize,
                     fontWeight: FontWeight.w600,
+                    color: whiteColor,
                   ),
                 ),
                 Expanded(
@@ -136,6 +137,7 @@ Widget _buildList(String string) {
                   style: const TextStyle(
                     fontSize: smallTextSize,
                     fontWeight: FontWeight.w600,
+                    color: whiteColor,
                   ),
                 )),
               ],
@@ -158,6 +160,7 @@ Widget _buildTitle(String icon, String title) {
             fontSize: smallTitleSize,
             fontWeight: FontWeight.w700,
             height: 1.5,
+            color: whiteColor,
           ),
         ),
         TextSpan(
@@ -166,6 +169,7 @@ Widget _buildTitle(String icon, String title) {
             fontSize: textSize,
             fontWeight: FontWeight.w600,
             height: 1.5,
+            color: whiteColor,
           ),
         ),
       ],
