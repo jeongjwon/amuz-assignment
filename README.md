@@ -1,3 +1,7 @@
+블로그 : https://velog.io/@jeongjwon/%EA%B8%B0%EC%88%A0%EA%B3%BC%EC%A0%9C-Portfolio-Application
+
+</br>
+
 # Portfolio Application
 
 일주일 간 Laravel 과 Flutter 로 진행한 포트폴리오 앱입니다. 
