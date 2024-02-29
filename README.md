@@ -6,16 +6,20 @@
 </br>
 
 ## Simulation
-<img src="https://github.com/jeongjwon/amuz-assignment/assets/76391160/29f2994e-9e60-4e18-a968-c7056e37537e.gif" width="200" />
+<img src="https://github.com/jeongjwon/amuz-assignment/assets/76391160/ce631814-7bb7-4446-979e-1a08ef542f28.gif" width="200" />
+
+</br>
+</br>
 
 ## Screenshots
 
 |Home|About|Project|Search|
 |:--:|:--:|:--:|:--:|
-|<img src="https://github.com/jeongjwon/amuz-assignment/assets/76391160/30d13809-19e4-4c8c-a887-400942e764f7" width="200" />|<img src="https://github.com/jeongjwon/amuz-assignment/assets/76391160/ef180dc9-37df-4b62-a9cd-864b4a6efccc" width="200"/>|<img src="https://github.com/jeongjwon/amuz-assignment/assets/76391160/6c48046d-e720-412b-bffd-d23e68cdc570" width="200" /><img src="https://github.com/jeongjwon/amuz-assignment/assets/76391160/b258c76b-4bc8-4189-b587-f0f53d74668f" width="200" />|<img src="https://github.com/jeongjwon/amuz-assignment/assets/76391160/a6cd3aba-4d5b-4aae-89d9-7a868657ea7f" width="200" /><img src="https://github.com/jeongjwon/amuz-assignment/assets/76391160/d373fe14-b8b0-4952-8b0e-61dbaa830127" width="200"/>|
+|<img src="https://github.com/jeongjwon/amuz-assignment/assets/76391160/30d13809-19e4-4c8c-a887-400942e764f7" width="200" />|<img src="https://github.com/jeongjwon/amuz-assignment/assets/76391160/ef180dc9-37df-4b62-a9cd-864b4a6efccc" width="200"/>|<img src="https://github.com/jeongjwon/amuz-assignment/assets/76391160/6c48046d-e720-412b-bffd-d23e68cdc570" width="200" /><img src="https://github.com/jeongjwon/amuz-assignment/assets/76391160/6b29d823-79b6-4abf-b0a8-0e2b68ee40d5" width="200" />|<img src="https://github.com/jeongjwon/amuz-assignment/assets/76391160/a6cd3aba-4d5b-4aae-89d9-7a868657ea7f" width="200" /><img src="https://github.com/jeongjwon/amuz-assignment/assets/76391160/d373fe14-b8b0-4952-8b0e-61dbaa830127" width="200"/>|
 
 
-
+</br>
+</br>
 
 
 ## Techonologies and Packages USed
@@ -46,6 +50,19 @@
     ```flutter pub get```
    
    ```flutter run```
+
+</br>
+
+``` 
+🚨 혹시나 flutter run 이 안되신다면?
+frontend/amuz_assignment 폴더 내 lib > services >portfolio_service.dart  파일에서
+
+getPortfolios 메서드와 searchPortfolio 메서드 내의 
+
+String baseUrl = dotenv.get("PROJECT_URL"); 를 주석처리하시고,
+다음 줄인,
+String baseUrl = 'http://127.0.0.1:8000'; 에서 주소를 IP주소로 변경시켜 시도해주시면 됩니다.
+```
 
 </br>
 </br>
