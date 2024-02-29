@@ -49,7 +49,12 @@ class Portfolio {
 class PortfolioService {
   static Future<List<Portfolio>> getPortfolios() async {
     await dotenv.load();
+
+    // 54번째 줄 주석처리,
     String baseUrl = dotenv.get("PROJECT_URL");
+    // 56번째 줄 주석해제후 각 컴퓨터의 IP주소:8000으로 변경시켜 시도해주세요.
+    // String baseUrl = 'http://127.0.0.1:8000';
+
     final response = await http.get(Uri.parse('$baseUrl/api/portfolios'));
 
     if (response.statusCode == 200) {
@@ -62,7 +67,12 @@ class PortfolioService {
 
   static Future<List<Portfolio>> searchPortfolio(String searchTerm) async {
     await dotenv.load();
+
+    // 72번째 줄 주석처리,
     String baseUrl = dotenv.get("PROJECT_URL");
+    // 74번째 줄 주석해제후 각 컴퓨터의 IP주소:8000으로 변경시켜 시도해주세요.
+    // String baseUrl = 'http://127.0.0.1:8000';
+
     final response = await http
         .get(Uri.parse('$baseUrl/api/portfolios/search?search=$searchTerm'));
 
